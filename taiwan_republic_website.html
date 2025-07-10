@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我心中的台灣共和國 - 政治體制比較</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft JhengHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .tab-button {
+            padding: 12px 25px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .tab-button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .tab-button.active {
+            background: #e74c3c;
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.5em;
+            margin: 25px 0 15px 0;
+        }
+
+        .system-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .system-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            border-left: 5px solid #3498db;
+        }
+
+        .system-card h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .comparison-table th {
+            background: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .comparison-table tr:hover {
+            background: #e8f4f8;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .pros, .cons {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .pros {
+            border-left: 4px solid #28a745;
+        }
+
+        .cons {
+            border-left: 4px solid #dc3545;
+        }
+
+        .pros h4 {
+            color: #28a745;
+        }
+
+        .cons h4 {
+            color: #dc3545;
+        }
+
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .nav-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-button {
+                width: 200px;
+            }
+            
+            .pros-cons {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>我心中的台灣共和國</h1>
+            <p class="subtitle">政治體制比較與分析平台</p>
+            <div class="nav-tabs">
+                <button class="tab-button active" onclick="showTab('current')">現行體制</button>
+                <button class="tab-button" onclick="showTab('ideal')">理想體制</button>
+                <button class="tab-button" onclick="showTab('comparison')">比較分析</button>
+            </div>
+        </header>
+
+        <div id="current" class="content-section active">
+            <h2>中華民國(台灣)現行政治體制</h2>
+            
+            <h3>憲政架構</h3>
+            <div class="system-grid">
+                <div class="system-card">
+                    <h4>總統制特色</h4>
+                    <p>總統為國家元首，直接民選產生，任期4年，可連任一次。總統具有國防、外交、兩岸等重要職權。</p>
+                </div>
+                <div class="system-card">
+                    <h4>五院制政府</h4>
+                    <p>行政院、立法院、司法院、考試院、監察院，形成獨特的權力分立制衡體系。</p>
+                </div>
+                <div class="system-card">
+                    <h4>中央與地方</h4>
+                    <p>採行政區劃分為直轄市、縣市等，地方自治權限由法律規範。</p>
+                </div>
+            </div>
+
+            <h3>政府體制運作</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>機關</th>
+                        <th>主要職權</th>
+                        <th>產生方式</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>總統</td>
+                        <td>國家元首、統帥三軍、任免行政院長</td>
+                        <td>直接民選</td>
+                    </tr>
+                    <tr>
+                        <td>行政院</td>
+                        <td>國家最高行政機關</td>
+                        <td>總統任命院長</td>
+                    </tr>
+                    <tr>
+                        <td>立法院</td>
+                        <td>國家最高立法機關</td>
+                        <td>直接民選</td>
+                    </tr>
+                    <tr>
+                        <td>司法院</td>
+                        <td>國家最高司法機關</td>
+                        <td>總統提名、立法院同意</td>
+                    </tr>
+                    <tr>
+                        <td>考試院</td>
+                        <td>公務人員考試、銓敘</td>
+                        <td>總統提名、立法院同意</td>
+                    </tr>
+                    <tr>
+                        <td>監察院</td>
+                        <td>監察、彈劾、糾舉</td>
+                        <td>總統提名、立法院同意</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight">
+                <strong>特色：</strong>現行制度融合了總統制與內閣制特色，並保留傳統五權分立概念，形成獨特的政治體制。
+            </div>
+        </div>
+
+        <div id="ideal" class="content-section">
+            <h2>個人理想的台灣共和國體制</h2>
+
+            <h3>憲政理念</h3>
+            <div class="system-grid">
+                <div class="system-card">
+                    <h4>聯邦制共和國</h4>
+                    <p>採取聯邦制架構，各地區擁有更大自治權，中央政府專注於國防、外交、貨幣等全國性事務。</p>
+                </div>
+                <div class="system-card">
+                    <h4>議會內閣制</h4>
+                    <p>總統為虛位元首，行政權由國會多數黨組成內閣行使，確保行政立法密切配合。</p>
+                </div>
+                <div class="system-card">
+                    <h4>三權分立</h4>
+                    <p>簡化為行政、立法、司法三權，各司其職，相互制衡。</p>
+                </div>
+            </div>
+
+            <h3>政府架構設計</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>機關</th>
+                        <th>主要職權</th>
+                        <th>產生方式</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>總統</td>
+                        <td>國家象徵、禮儀性職權</td>
+                        <td>國會選舉產生</td>
+                    </tr>
+                    <tr>
+                        <td>總理</td>
+                        <td>政府首腦、行政權首長</td>
+                        <td>國會多數黨黨魁</td>
+                    </tr>
+                    <tr>
+                        <td>國會</td>
+                        <td>立法、監督政府、預算審查</td>
+                        <td>比例代表制選舉</td>
+                    </tr>
+                    <tr>
+                        <td>最高法院</td>
+                        <td>司法審判、違憲審查</td>
+                        <td>司法委員會提名</td>
+                    </tr>
+                    <tr>
+                        <td>地方政府</td>
+                        <td>地方自治事務</td>
+                        <td>地方直接民選</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>創新制度設計</h3>
+            <div class="system-grid">
+                <div class="system-card">
+                    <h4>公民參與機制</h4>
+                    <p>建立定期公投制度、公民議會、參與式預算等，強化民主參與。</p>
+                </div>
+                <div class="system-card">
+                    <h4>透明治理</h4>
+                    <p>政府決策過程公開透明，建立完善的資訊公開與監督機制。</p>
+                </div>
+                <div class="system-card">
+                    <h4>專業治理</h4>
+                    <p>重要政策由跨黨派專家委員會研議，降低政治考量對專業決策的影響。</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="comparison" class="content-section">
+            <h2>體制比較分析</h2>
+
+            <h3>制度差異比較</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>項目</th>
+                        <th>現行制度</th>
+                        <th>理想制度</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>政府型態</td>
+                        <td>半總統制</td>
+                        <td>議會內閣制</td>
+                    </tr>
+                    <tr>
+                        <td>權力分立</td>
+                        <td>五權分立</td>
+                        <td>三權分立</td>
+                    </tr>
+                    <tr>
+                        <td>國家結構</td>
+                        <td>單一制</td>
+                        <td>聯邦制</td>
+                    </tr>
+                    <tr>
+                        <td>總統角色</td>
+                        <td>實權元首</td>
+                        <td>虛位元首</td>
+                    </tr>
+                    <tr>
+                        <td>選舉制度</td>
+                        <td>混合制</td>
+                        <td>比例代表制</td>
+                    </tr>
+                    <tr>
+                        <td>地方自治</td>
+                        <td>有限自治</td>
+                        <td>高度自治</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>優缺點分析</h3>
+            <div class="pros-cons">
+                <div class="pros">
+                    <h4>現行制度優點</h4>
+                    <ul>
+                        <li>政治穩定性較高</li>
+                        <li>行政效率相對較佳</li>
+                        <li>符合現有政治文化</li>
+                        <li>轉型成本較低</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h4>現行制度缺點</h4>
+                    <ul>
+                        <li>權責不清，易有政治僵局</li>
+                        <li>五權分立複雜且效率不佳</li>
+                        <li>地方自治權限有限</li>
+                        <li>民主參與機制不足</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pros-cons">
+                <div class="pros">
+                    <h4>理想制度優點</h4>
+                    <ul>
+                        <li>權責分明，政治問責清楚</li>
+                        <li>政府組成反映民意</li>
+                        <li>地方自治權擴大</li>
+                        <li>民主參與更完善</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h4>理想制度挑戰</h4>
+                    <ul>
+                        <li>政治不穩定風險較高</li>
+                        <li>轉型成本龐大</li>
+                        <li>需要政治文化配合</li>
+                        <li>聯邦制適應性待觀察</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <strong>結論：</strong>制度改革需要謹慎評估，既要追求更完善的民主治理，也要考慮政治穩定與社會成本。漸進式改革可能是較為可行的路徑。
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 我心中的台灣共和國 | 促進民主對話與政治思辨</p>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all content sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show selected content section
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
+        // Add smooth scrolling and interaction effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effects to cards
+            const cards = document.querySelectorAll('.system-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
